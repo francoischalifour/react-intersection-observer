@@ -1,0 +1,152 @@
+body {
+  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue",
+    "Lucida Grande", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.body {
+  height: calc(100vh + 121px);
+  display: flex;
+  align-items: flex-end;
+}
+
+.body::after {
+  position: absolute;
+  left: 50%;
+  top: calc(50vh + 25px);
+  transform: translate(-50%, -50%);
+  content: '\2193\00a0\00a0scroll\00a0\00a0\2193';
+  font-size: 30px;
+  color: #ddd;
+  pointer-events: none;
+}
+
+.body--center {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(200vh + 950px);
+}
+
+.body--frame {
+  padding-top: 50px;
+  height: 300px;
+}
+
+.body--frame::after {
+  top: 200px;
+}
+
+.scroller {
+  width: 100%;
+  height: 300px;
+  overflow: auto;
+  outline: 1px solid #ddd;
+}
+
+.scroller--gradient {
+  background: linear-gradient(to top, #fadecf 25%, white 25%);
+}
+
+.scroller--gradient::after {
+  position: absolute;
+  left: 50%;
+  top: 300px;
+  transform: translateX(-50%);
+  content: '-25% bottom rootMargin';
+  font-size: 20px;
+  color: #ff8142;
+  pointer-events: none;
+}
+
+.frame {
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.box {
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  line-height: 120px;
+}
+
+.box + .box {
+  margin-top: 15px;
+}
+
+.invisible {
+  background: #f50;
+  color: #fff;
+}
+.visible {
+  background: #00a39e;
+  color: #fff;
+}
+.transparent {
+  outline: 2px dashed #00a39e;
+}
+
+.ad {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.025);
+  margin-bottom: 15px;
+}
+
+.ad {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.ad:nth-child(1) {
+  background-image: url('https://www.researchgate.net/profile/Cyprien_Verseux/project/HI-SEAS-IV-Crew/attachment/573575ab08aeeb951e439b95/AS:361171162025984@1463121323053/image/DSCN0007.JPG');
+}
+
+.ad:nth-child(2) {
+  background-image: url('https://www.researchgate.net/profile/Christiane_Heinicke/project/HI-SEAS-IV-Crew/attachment/5736681408aeeb951e43a6e8/AS:361431447949312@1463183380327/image/Verseux_CH.jpg');
+}
+
+.ad:nth-child(3) {
+  background-image: url('https://www.researchgate.net/profile/Christiane_Heinicke/project/HI-SEAS-IV-Crew/attachment/5760a74808ae990cb7fbe787/AS:373044183879680@1465952072483/image/DSC01100_s.jpg');
+}
+
+.ad--tracked::before {
+  content: '';
+  background: rgba(2, 100, 212, 0.65);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.ad--tracked::after {
+  content: '✓';
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
